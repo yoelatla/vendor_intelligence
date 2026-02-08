@@ -67,6 +67,7 @@ class QAValidationAgent(BaseAgent):
         agent_4_result = self._validate_agent_4()
         cross_agent_result = self._validate_cross_agent_consistency()
         data_quality_result = self._validate_data_quality()
+        url_validation_result = self._validate_source_urls()
 
         # Calculate overall quality score
         overall_status = self._calculate_overall_status()
@@ -81,6 +82,7 @@ class QAValidationAgent(BaseAgent):
             "agent_4_validation": agent_4_result,
             "cross_agent_validation": cross_agent_result,
             "data_quality": data_quality_result,
+            "url_validation": url_validation_result,
             "critical_issues": self.critical_issues,
             "warnings": self.warnings_list,
         }
@@ -345,6 +347,149 @@ class QAValidationAgent(BaseAgent):
         }
 
         return result
+
+    def _validate_source_urls(self) -> dict:
+        """
+        Validate source URLs across all agent outputs.
+
+        Checks that:
+        - URLs are present in report sources sections
+        - URLs have valid format (scheme, domain)
+        - URLs point to known authoritative domains
+        - No obviously fabricated/hallucinated URLs
+        """
+        result = {
+            "total_urls_found": 0,
+            "valid_format": 0,
+            "invalid_format": 0,
+            "authoritative_domains": 0,
+            "unknown_domains": 0,
+            "url_details": [],
+            "issues": [],
+        }
+
+        # Known authoritative domains for cybersecurity research
+        authoritative_domains = {
+            "gartner.com", "forrester.com", "g2.com", "trustradius.com",
+            "capterra.com", "peerspot.com", "crunchbase.com", "pitchbook.com",
+            "linkedin.com", "github.com", "techcrunch.com", "venturebeat.com",
+            "darkreading.com", "csoonline.com", "scmagazine.com",
+            "securityweek.com", "cybersecuritydive.com", "reuters.com",
+            "bloomberg.com", "wsj.com", "frost.com", "gigaom.com",
+            "idc.com", "researchandmarkets.com", "marketsandmarkets.com",
+            "cloudsecurityalliance.org", "nist.gov", "cisa.gov",
+            "sec.gov", "patents.google.com", "googleapis.com",
+            "justia.com", "researchgate.net", "scholar.google.com",
+            "aws.amazon.com", "microsoft.com", "crowdstrike.com",
+            "zscaler.com", "netskope.com", "appomni.com",
+            "obsidiansecurity.com", "docontrol.io", "valencesecurity.com",
+            "wingsecurity.com", "grip.security", "nudgesecurity.com",
+            "varonis.com", "nightfall.ai", "spin.ai", "zluri.com",
+            "pushsecurity.com", "reco.ai",
+        }
+
+        # Collect all URLs from agent outputs
+        all_urls = []
+        for agent_key, agent_result in self.agent_results.items():
+            if not isinstance(agent_result, AgentResult):
+                continue
+
+            # Check sources list
+            sources = agent_result.sources or []
+            for source in sources:
+                if isinstance(source, str) and (
+                    source.startswith("http://") or source.startswith("https://")
+                ):
+                    all_urls.append({"url": source, "agent": agent_key})
+                elif isinstance(source, dict) and source.get("url"):
+                    all_urls.append({
+                        "url": source["url"],
+                        "agent": agent_key,
+                        "title": source.get("title", ""),
+                    })
+
+            # Check data dict for source URLs
+            data = agent_result.data or {}
+            if isinstance(data, dict):
+                self._extract_urls_from_dict(data, agent_key, all_urls)
+
+        result["total_urls_found"] = len(all_urls)
+
+        if len(all_urls) == 0:
+            self._add_warning(
+                "All Agents",
+                "No source URLs found in agent outputs. Reports should include "
+                "verifiable URL references for all claims and data points.",
+            )
+            self.quality_score -= 5
+
+        for url_info in all_urls:
+            url = url_info["url"]
+            parsed = urlparse(url)
+
+            # Check format
+            if parsed.scheme in ("http", "https") and parsed.netloc:
+                result["valid_format"] += 1
+
+                # Check domain authority
+                domain = parsed.netloc.replace("www.", "")
+                is_authoritative = any(
+                    domain.endswith(auth_domain)
+                    for auth_domain in authoritative_domains
+                )
+                if is_authoritative:
+                    result["authoritative_domains"] += 1
+                else:
+                    result["unknown_domains"] += 1
+
+                result["url_details"].append({
+                    "url": url,
+                    "agent": url_info["agent"],
+                    "domain": domain,
+                    "authoritative": is_authoritative,
+                    "format_valid": True,
+                })
+            else:
+                result["invalid_format"] += 1
+                result["issues"].append(
+                    f"Invalid URL format from {url_info['agent']}: {url}"
+                )
+                result["url_details"].append({
+                    "url": url,
+                    "agent": url_info["agent"],
+                    "format_valid": False,
+                })
+
+        if result["invalid_format"] > 0:
+            self._add_warning(
+                "URL Validation",
+                f"{result['invalid_format']} URLs have invalid format",
+            )
+
+        return result
+
+    def _extract_urls_from_dict(
+        self, data: dict, agent_key: str, url_list: list
+    ) -> None:
+        """Recursively extract URLs from a dict structure."""
+        for key, value in data.items():
+            if isinstance(value, str) and (
+                value.startswith("http://") or value.startswith("https://")
+            ):
+                url_list.append({"url": value, "agent": agent_key})
+            elif isinstance(value, dict):
+                self._extract_urls_from_dict(value, agent_key, url_list)
+            elif isinstance(value, list):
+                for item in value:
+                    if isinstance(item, str) and (
+                        item.startswith("http://")
+                        or item.startswith("https://")
+                    ):
+                        url_list.append({"url": item, "agent": agent_key})
+                    elif isinstance(item, dict):
+                        self._extract_urls_from_dict(
+                            item, agent_key, url_list
+                        )
 
     def _validate_data_quality(self) -> dict:
         """Validate overall data quality."""
@@ -625,6 +770,52 @@ class QAValidationAgent(BaseAgent):
                 f"### {key.replace('_', ' ').title()}",
                 f"- **Status:** {value.get('status', 'N/A')}",
                 f"- **Note:** {value.get('note', 'N/A')}",
+                "",
+            ])
+
+        # URL Validation
+        url_val = data.get("url_validation", {})
+        lines.extend([
+            "---",
+            "",
+            "## Source URL Validation",
+            "",
+            f"**Total URLs Found:** {url_val.get('total_urls_found', 0)}",
+            f"**Valid Format:** {url_val.get('valid_format', 0)}",
+            f"**Invalid Format:** {url_val.get('invalid_format', 0)}",
+            f"**Authoritative Domains:** {url_val.get('authoritative_domains', 0)}",
+            f"**Unknown Domains:** {url_val.get('unknown_domains', 0)}",
+            "",
+        ])
+
+        url_details = url_val.get("url_details", [])
+        if url_details:
+            headers = ["URL", "Agent", "Domain", "Authoritative", "Valid"]
+            rows = []
+            for detail in url_details[:30]:  # Limit to 30 for readability
+                rows.append([
+                    detail.get("url", "N/A")[:60] + ("..." if len(detail.get("url", "")) > 60 else ""),
+                    detail.get("agent", "N/A"),
+                    detail.get("domain", "N/A"),
+                    "Yes" if detail.get("authoritative") else "No",
+                    "Yes" if detail.get("format_valid") else "No",
+                ])
+            lines.append(format_table(headers, rows))
+            lines.append("")
+
+        url_issues = url_val.get("issues", [])
+        if url_issues:
+            lines.extend(["### URL Issues", ""])
+            for issue in url_issues:
+                lines.append(f"- {issue}")
+            lines.append("")
+
+        if url_val.get("total_urls_found", 0) == 0:
+            lines.extend([
+                "### RECOMMENDATION: Add Source URLs",
+                "",
+                "Reports should include verifiable URLs for all claims.",
+                "Each source in the Sources table should link to the original resource.",
                 "",
             ])
 

@@ -35,10 +35,6 @@ Examples:
   %(prog)s --vendor "Varonis" --competitors "BigID,Cyera,Securiti"
   %(prog)s --vendor "Proofpoint" --output ./reports --verbose
 
-Google Drive auto-upload:
-  %(prog)s --vendor "Reco AI" --google-drive-credentials service_account.json
-  %(prog)s --vendor "Reco AI" --google-drive-credentials creds.json --google-drive-share team@company.com
-  %(prog)s --vendor "Reco AI" --no-google-drive
         """,
     )
 
@@ -81,31 +77,6 @@ Google Drive auto-upload:
         help="Path to write JSON results summary",
     )
 
-    # Google Drive options
-    parser.add_argument(
-        "--google-drive-credentials",
-        default=None,
-        help="Path to Google Drive credentials JSON (service account or OAuth2)",
-    )
-
-    parser.add_argument(
-        "--google-drive-folder-id",
-        default=None,
-        help="Parent folder ID in Google Drive to create reports under",
-    )
-
-    parser.add_argument(
-        "--no-google-drive",
-        action="store_true",
-        help="Disable Google Drive upload even if credentials are available",
-    )
-
-    parser.add_argument(
-        "--google-drive-share",
-        default=None,
-        help="Email address to share the Google Drive folder with",
-    )
-
     return parser.parse_args()
 
 
@@ -133,15 +104,7 @@ async def main_async(args: argparse.Namespace) -> int:
         user_provided_competitors=competitors,
         auto_detect_competitors=competitors is None,
         output_dir=args.output,
-        google_drive_credentials=getattr(args, "google_drive_credentials", None),
-        google_drive_folder_id=getattr(args, "google_drive_folder_id", None),
-        upload_to_google_drive=not getattr(args, "no_google_drive", False),
     )
-
-    # Store share email on config for orchestrator to use
-    share_email = getattr(args, "google_drive_share", None)
-    if share_email:
-        config.google_drive_share_email = share_email
 
     # Create and run orchestrator
     orchestrator = VendorIntelligenceOrchestrator(config)

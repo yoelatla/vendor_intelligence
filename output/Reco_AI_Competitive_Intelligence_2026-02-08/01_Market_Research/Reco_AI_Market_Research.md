@@ -22,7 +22,7 @@ The SSPM market in 2025-2026 is defined by six macro themes: **(1)** Shadow AI o
 | Attribute | Detail |
 |---|---|
 | **Company** | Reco AI |
-| **Website** | reco.ai |
+| **Website** | [reco.ai](https://www.reco.ai) |
 | **Category** | SaaS Security Posture Management (SSPM) / Dynamic SaaS Security |
 | **Founded** | 2020 |
 | **Headquarters** | Altamonte Springs, FL |
@@ -90,7 +90,7 @@ For pureplay SSPM vendors like Reco AI, the strategic imperative is clear: **dif
 | **Forrester Wave: SSPM, Q4 2023** | Q4 2023 | Zscaler named only Leader. Established evaluation criteria for SSPM including misconfiguration detection, identity governance, and compliance automation. |
 | **Frost Radar: SSPM 2024** | 2024 | CrowdStrike (via Adaptive Shield acquisition) named Leader. Market mapped on Growth Index and Innovation Index axes. |
 | **Frost Radar: SSPM 2025** | 2025 | CrowdStrike Falcon Shield retained Leader position with 219% YoY growth. DoControl also recognized as Leader. |
-| **GigaOm SSPM Radar 2025** | 2025 | Evaluated SSPM vendors on feature completeness, platform capabilities, and business criteria. |
+| **GigaOm SSPM Radar 2025** | 2025 | Evaluated SSPM vendors on feature completeness, platform capabilities, and business criteria. Reco AI was named **Leader & Fast Mover**. CrowdStrike (Falcon Shield) was named **"the only Leader and Outperformer"** in the same report. Both hold Leader designations with different secondary classifications. ([Report via CrowdStrike](https://www.crowdstrike.com/en-us/resources/reports/2025-gigaom-radar-saas-security-posture-management/)) |
 | **QKS Spark Matrix: SSPM 2025** | 2025 | DoControl recognized in the Spark Matrix. Evaluated technology excellence and customer impact dimensions. |
 | **CSA State of SaaS Security 2025-2026** | 2025-2026 | Cloud Security Alliance survey documenting the rise of Shadow AI, non-human identity risks, and SaaS security maturity gaps across enterprises. |
 
@@ -413,7 +413,7 @@ TIER 3: ADJACENT VENDORS EXTENDING INTO SSPM
 ### Reco AI's Competitive Vulnerabilities
 1. **Funding gap vs. top pureplay competitors**: $55M total vs. AppOmni's $123M and Obsidian's ~$120M
 2. **Platform bundling pressure**: CrowdStrike, Zscaler, and Netskope can bundle SSPM at marginal cost to existing customers
-3. **Analyst recognition gap**: Reco AI does not yet hold a Leader position in any major analyst evaluation (Forrester, Frost, GigaOm, QKS)
+3. **Analyst recognition gap**: While Reco AI was named a **Leader & Fast Mover** in the GigaOm SSPM Radar 2025, it does not yet hold Leader or Strong Performer positions in the higher-weight Forrester Wave, Frost Radar, or QKS Spark Matrix evaluations. Note: CrowdStrike was named "the only Leader and Outperformer" in the same GigaOm 2025 report -- both hold Leader designations with different secondary classifications.
 4. **Consolidation risk**: The SSPM market is consolidating rapidly; pureplay vendors that do not achieve scale or differentiation may face acqui-hire pressure at sub-optimal valuations
 5. **Mindshare deficit**: AppOmni's 15.2% mindshare sets the pureplay benchmark; Reco AI must invest in awareness
 
@@ -536,7 +536,7 @@ The SSPM market presents a **strong but time-constrained opportunity** for Reco 
 
 2. **Invest in Shadow AI detection as a wedge**: 80% of employees using unauthorized AI tools creates urgent, boardroom-level demand. Shadow AI discovery is a compelling entry point that leads to broader SSPM platform adoption.
 
-3. **Pursue analyst recognition aggressively**: Reco AI's absence from Leader/Strong Performer positions in Forrester, Frost, GigaOm, and QKS evaluations is a competitive liability. Prioritize analyst engagement for 2026 evaluation cycles.
+3. **Pursue analyst recognition aggressively**: While Reco AI holds a GigaOm SSPM Radar 2025 Leader & Fast Mover designation, its absence from Leader/Strong Performer positions in the higher-weight Forrester Wave, Frost Radar, and QKS Spark Matrix evaluations is a competitive liability. Prioritize analyst engagement for 2026 evaluation cycles.
 
 4. **Differentiate on non-human identity depth**: With 46% of organizations struggling to monitor non-human identities, deep coverage of service accounts, API keys, OAuth tokens, and AI agent credentials is a high-value differentiator against both platform incumbents and pureplay competitors.
 
@@ -551,7 +551,7 @@ The SSPM market presents a **strong but time-constrained opportunity** for Reco 
 | 1 | Forrester Wave: SaaS Security Posture Management (SSPM), Q4 2023 | Analyst Report | Definitive SSPM vendor evaluation; Zscaler named only Leader |
 | 2 | Frost & Sullivan Radar: SSPM, 2024 | Analyst Report | CrowdStrike (Adaptive Shield) named Leader |
 | 3 | Frost & Sullivan Radar: SSPM, 2025 | Analyst Report | CrowdStrike Falcon Shield retained Leader; DoControl recognized as Leader |
-| 4 | GigaOm Radar: SaaS Security Posture Management, 2025 | Analyst Report | SSPM vendor positioning and capability evaluation |
+| 4 | GigaOm Radar: SaaS Security Posture Management, 2025 | Analyst Report | SSPM vendor positioning and capability evaluation. Reco AI: Leader & Fast Mover. CrowdStrike: "only Leader and Outperformer." ([via CrowdStrike](https://www.crowdstrike.com/en-us/resources/reports/2025-gigaom-radar-saas-security-posture-management/)) |
 | 5 | QKS Group Spark Matrix: SSPM, 2025 | Analyst Report | DoControl recognized; technology excellence and customer impact evaluation |
 | 6 | Cloud Security Alliance: State of SaaS Security 2025-2026 | Industry Survey | Shadow AI risk data, non-human identity challenges, SaaS security maturity benchmarks |
 | 7 | Gartner: Emerging Technologies in SaaS Security | Analyst Research | AI agent proliferation projections (40% by 2026), non-human identity trends |
@@ -563,3 +563,72 @@ The SSPM market presents a **strong but time-constrained opportunity** for Reco 
 | 13 | Deloitte Technology Fast 500 | Industry Recognition | Obsidian Security inclusion, growth validation |
 | 14 | IDC / Gartner Cloud Security Spending Forecasts | Market Sizing | $9B (2024) to $22.6B (2028) cloud security spending projections, 25.9% CAGR |
 | 15 | Industry analyst estimates | Market Sizing | SSPM market: $636M (2025) to $900M (2032); SPM market: $26.6B (2025) to $53.3B (2030) |
+
+---
+
+## Verified Sources & References
+
+The following URLs have been manually verified and are provided as direct links for fact-checking, further research, and citation purposes.
+
+### Reco AI -- Company & Product
+
+| # | Source | URL |
+|---|--------|-----|
+| 1 | Reco AI Official Website | [https://www.reco.ai](https://www.reco.ai) |
+| 2 | Reco AI Newsroom | [https://www.reco.ai/newsroom](https://www.reco.ai/newsroom) |
+| 3 | Reco AI Competitor Comparisons | [https://www.reco.ai/compare](https://www.reco.ai/compare) |
+| 4 | Reco AI -- Top SSPM Tools Guide | [https://www.reco.ai/compare/top-sspm-tools](https://www.reco.ai/compare/top-sspm-tools) |
+| 5 | Reco AI LinkedIn | [https://www.linkedin.com/company/recolabs](https://www.linkedin.com/company/recolabs) |
+
+### Funding & Company Data
+
+| # | Source | URL | Notes |
+|---|--------|-----|-------|
+| 6 | Reco AI -- Crunchbase Company Profile | [https://www.crunchbase.com/organization/reco-67bb](https://www.crunchbase.com/organization/reco-67bb) | Total funding: **$55M** ($30M Series A in 2022 + $25M extension in April 2025). Note: Total is $55M, not $65M. |
+| 7 | Reco AI -- Crunchbase Series A Detail | [https://www.crunchbase.com/funding_round/reco-67bb-series-a--f5ef554f](https://www.crunchbase.com/funding_round/reco-67bb-series-a--f5ef554f) | $30M Series A (2022) |
+| 8 | Reco AI -- PitchBook Profile | [https://pitchbook.com/profiles/company/493571-71](https://pitchbook.com/profiles/company/493571-71) | |
+| 9 | Startup Nation Finder -- RecoLabs | [https://finder.startupnationcentral.org/company_page/recolabs](https://finder.startupnationcentral.org/company_page/recolabs) | Israel-based startup database |
+
+### Analyst Reviews & Third-Party Ratings
+
+| # | Source | URL | Notes |
+|---|--------|-----|-------|
+| 10 | Reco AI -- Gartner Peer Insights (DLP Category) | [https://www.gartner.com/reviews/market/data-loss-prevention/vendor/reco-767548734/product/reco](https://www.gartner.com/reviews/market/data-loss-prevention/vendor/reco-767548734/product/reco) | 4.9/5.0 rating, 24 reviews. Listed under DLP category, not SSPM. |
+| 11 | Reco AI -- G2 Reviews (SSPM Category) | [https://www.g2.com/products/reco-saas-security/reviews](https://www.g2.com/products/reco-saas-security/reviews) | Listed under SaaS Security Posture Management. |
+| 12 | Reco AI -- TrustRadius | [https://www.trustradius.com/products/reco/reviews](https://www.trustradius.com/products/reco/reviews) | Early presence, minimal review volume. |
+| 13 | CB Insights -- Reco Competitors | [https://www.cbinsights.com/company/reco-3/alternatives-competitors](https://www.cbinsights.com/company/reco-3/alternatives-competitors) | Competitive landscape and alternatives analysis. |
+
+### Press & Funding Announcements
+
+| # | Source | URL | Notes |
+|---|--------|-----|-------|
+| 14 | Reco AI Blog -- $30M Series A Announcement | [https://www.reco.ai/blog/reco-raises-30-million-to-enable-organizations-to-collaborate-securely-using-its-context-based-ai-relationship-map](https://www.reco.ai/blog/reco-raises-30-million-to-enable-organizations-to-collaborate-securely-using-its-context-based-ai-relationship-map) | June 2022 |
+| 15 | TechCrunch -- Reco raises $30M | [https://techcrunch.com/2022/06/03/reco-raises-30m-to-prevent-sensitive-data-leaks/](https://techcrunch.com/2022/06/03/reco-raises-30m-to-prevent-sensitive-data-leaks/) | Independent press coverage of Series A |
+| 16 | Insight Partners -- Reco $25M Announcement | [https://www.insightpartners.com/ideas/reco-secures-25m-to-close-the-saas-security-gap-with-ai-native-dynamic-saas-security/](https://www.insightpartners.com/ideas/reco-secures-25m-to-close-the-saas-security-gap-with-ai-native-dynamic-saas-security/) | April 2025 extension |
+| 17 | GlobeNewsWire -- Reco Identity-First SaaS Security | [https://www.globenewswire.com/news-release/2023/12/12/2794806/0/en/Reco-ai-Is-Changing-the-Game-of-SaaS-Security-with-Its-Identity-First-Approach-to-SaaS-Security-Posture-Management.html](https://www.globenewswire.com/news-release/2023/12/12/2794806/0/en/Reco-ai-Is-Changing-the-Game-of-SaaS-Security-with-Its-Identity-First-Approach-to-SaaS-Security-Posture-Management.html) | December 2023 |
+
+### Industry Recognition & Awards
+
+| # | Source | URL | Notes |
+|---|--------|-----|-------|
+| 18 | CRN 2025 Stellar Startup -- Reco | [https://www.reco.ai/blog/reco-recognized-as-a-crn-2025-stellar-startup](https://www.reco.ai/blog/reco-recognized-as-a-crn-2025-stellar-startup) | |
+| 19 | Cyber Defense Magazine -- Reco Innovator Spotlight | [https://www.cyberdefensemagazine.com/innovator-spotlight-reco-ai/](https://www.cyberdefensemagazine.com/innovator-spotlight-reco-ai/) | |
+
+### Analyst Reports & Market Evaluations
+
+| # | Source | URL | Notes |
+|---|--------|-----|-------|
+| 20 | GigaOm 2025 SSPM Radar Report (via CrowdStrike) | [https://www.crowdstrike.com/en-us/resources/reports/2025-gigaom-radar-saas-security-posture-management/](https://www.crowdstrike.com/en-us/resources/reports/2025-gigaom-radar-saas-security-posture-management/) | **Important clarification:** In this report, CrowdStrike (Falcon Shield) was named **"the only Leader and Outperformer,"** while Reco AI was named **"Leader & Fast Mover."** Both companies hold the Leader designation but with different secondary classifications (Outperformer vs. Fast Mover). Claims should specify the secondary designation for accuracy. |
+
+### Competitive & Market Landscape References
+
+| # | Source | URL | Notes |
+|---|--------|-----|-------|
+| 21 | DoControl Blog -- Top 10 SSPM Vendors 2025 | [https://www.docontrol.io/blog/top-10-saas-security-sspm-vendors-of-2025](https://www.docontrol.io/blog/top-10-saas-security-sspm-vendors-of-2025) | Competitor-authored; consider potential bias. |
+| 22 | Zluri Blog -- Top 11 SSPM Tools 2026 | [https://www.zluri.com/blog/sspm-tools](https://www.zluri.com/blog/sspm-tools) | Competitor-authored; consider potential bias. |
+
+### Important Notes on Data Accuracy
+
+- **Total Funding:** Reco AI's total funding is **$55M** ($30M Series A in 2022 + $25M Series A extension in April 2025). Any references to "$65M" in total funding are incorrect and should be corrected to $55M.
+- **GigaOm 2025 SSPM Radar -- Leader Designations:** Both Reco AI and CrowdStrike hold "Leader" designations in the GigaOm 2025 SSPM Radar. However, CrowdStrike was specifically named **"the only Leader and Outperformer"** while Reco AI was named **"Leader & Fast Mover."** These are different secondary classifications within the Leader tier. Marketing claims should accurately reflect the specific designation rather than implying sole Leader status.
+- **Gartner Peer Insights Categorization:** Reco AI is listed under the **Data Loss Prevention (DLP)** category on Gartner Peer Insights, not under SSPM. This categorization may affect discoverability for buyers searching for SSPM solutions specifically.

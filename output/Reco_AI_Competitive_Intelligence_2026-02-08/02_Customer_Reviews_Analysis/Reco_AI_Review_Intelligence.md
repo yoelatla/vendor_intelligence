@@ -8,7 +8,7 @@
 
 ## Executive Summary
 
-This report aggregates and analyzes customer reviews of Reco AI (reco.ai), a SaaS Security / SaaS Security Posture Management (SSPM) platform, across all major review platforms and secondary community sources. Reco AI maintains exceptionally high ratings on Gartner Peer Insights (4.9/5.0) and G2 (estimated 4.6-4.9/5.0), with review volumes that are growing but still relatively modest compared to more established competitors. The company self-reports an NPS of 82, which is consistent with the overwhelmingly positive review sentiment observed across platforms. Reco achieved 5x ARR growth and 3x customer growth in 2024, signaling rapid market adoption.
+This report aggregates and analyzes customer reviews of Reco AI ([reco.ai](https://www.reco.ai)), a SaaS Security / SaaS Security Posture Management (SSPM) platform, across all major review platforms and secondary community sources. Reco AI maintains exceptionally high ratings on Gartner Peer Insights (4.9/5.0) and G2 (estimated 4.6-4.9/5.0), with review volumes that are growing but still relatively modest compared to more established competitors. The company self-reports an NPS of 82, which is consistent with the overwhelmingly positive review sentiment observed across platforms. Reco achieved 5x ARR growth and 3x customer growth in 2024, signaling rapid market adoption.
 
 **Key Findings:**
 - **Critical Strength:** Rapid deployment and time-to-value is the single most praised attribute -- reviewers consistently report going from zero to actionable insights within hours, not weeks.
@@ -246,7 +246,7 @@ Reco AI reviews contain direct and indirect references to several competitors. T
 - **Category Listed:** Data Loss Prevention (DLP)
 - **Rating:** 4.9 / 5.0
 - **Review Count:** 24 reviews
-- **URL:** gartner.com/reviews (Reco AI profile under DLP)
+- **URL:** [Gartner Peer Insights - Reco](https://www.gartner.com/reviews/market/data-loss-prevention/vendor/reco-767548734/product/reco)
 - **Status:** Active, growing review volume
 - **Top Positive Themes:** Rapid deployment, exceptional support, comprehensive SaaS visibility
 - **Top Negative Themes:** False positives after alerting updates, no automated remediation
@@ -256,7 +256,7 @@ Reco AI reviews contain direct and indirect references to several competitors. T
 - **Category Listed:** SaaS Security Posture Management (SSPM)
 - **Rating:** Estimated 4.6-4.9 / 5.0
 - **Review Count:** Estimated 15-30 reviews
-- **URL:** g2.com (Reco AI profile under SSPM)
+- **URL:** [G2 - Reco SaaS Security](https://www.g2.com/products/reco-saas-security/reviews)
 - **Status:** Active, growing review volume
 - **Top Positive Themes:** Time-to-value, identity-centric approach, pre-built detections
 - **Top Negative Themes:** Niche app coverage gaps, alert tuning
@@ -265,21 +265,21 @@ Reco AI reviews contain direct and indirect references to several competitors. T
 ### TrustRadius
 - **Rating:** Listing exists
 - **Review Count:** Minimal (fewer than 5 estimated)
-- **URL:** trustradius.com (Reco AI profile)
+- **URL:** [TrustRadius - Reco](https://www.trustradius.com/products/reco/reviews)
 - **Status:** Early presence, not actively cultivated
 - **Assessment:** Insufficient review volume for meaningful analysis. Reco should consider a TrustRadius review campaign to improve presence on this platform, which is heavily used by mid-market IT buyers.
 
 ### Capterra
 - **Rating:** Listing exists
 - **Review Count:** Minimal (fewer than 5 estimated)
-- **URL:** capterra.com (Reco AI profile)
+- **URL:** Direct listing URL not confirmed
 - **Status:** Early presence, not actively cultivated
 - **Assessment:** Capterra skews toward SMB buyers. Given Reco's mid-market/enterprise focus, this platform may be lower priority, but maintaining a presence is advisable for SEO and buyer research journeys.
 
 ### AWS Marketplace
 - **Rating:** Listed
 - **Review Count:** 0 reviews
-- **URL:** AWS Marketplace (Reco AI listing)
+- **URL:** AWS Marketplace (direct listing URL not confirmed)
 - **Status:** Listed but no customer reviews
 - **Assessment:** AWS Marketplace reviews carry significant weight for cloud-native buyers. Reco should prioritize soliciting reviews from AWS-deployed customers.
 
@@ -300,7 +300,7 @@ Reco AI reviews contain direct and indirect references to several competitors. T
 - **Discussions found:** No meaningful discussions identified
 - **Assessment:** Consistent with the Reddit findings -- Reco AI has not yet penetrated practitioner community channels.
 
-**LinkedIn:**
+**LinkedIn:** [linkedin.com/company/recolabs](https://www.linkedin.com/company/recolabs)
 - **Assessment:** Reco maintains an active LinkedIn presence for company updates and thought leadership. LinkedIn discussions tend to be company-driven rather than organic peer reviews. Not assessed as a review source.
 
 ---
@@ -398,12 +398,12 @@ The near-absence of low-rated reviews is consistent with the 4.9/5.0 Gartner ave
 
 | # | Platform | Reviews | Rating | URL | Last Assessed |
 |---|----------|---------|--------|-----|---------------|
-| 1 | Gartner Peer Insights | 24 | 4.9/5.0 | gartner.com/reviews (DLP category) | February 2026 |
-| 2 | G2 | ~15-30 (est.) | ~4.6-4.9/5.0 (est.) | g2.com (SSPM category) | February 2026 |
-| 3 | TrustRadius | Minimal | N/A | trustradius.com | February 2026 |
-| 4 | Capterra | Minimal | N/A | capterra.com | February 2026 |
+| 1 | Gartner Peer Insights | 24 | 4.9/5.0 | [Gartner Peer Insights - Reco (DLP category)](https://www.gartner.com/reviews/market/data-loss-prevention/vendor/reco-767548734/product/reco) | February 2026 |
+| 2 | G2 | ~15-30 (est.) | ~4.6-4.9/5.0 (est.) | [G2 - Reco SaaS Security (SSPM category)](https://www.g2.com/products/reco-saas-security/reviews) | February 2026 |
+| 3 | TrustRadius | Minimal | N/A | [TrustRadius - Reco](https://www.trustradius.com/products/reco/reviews) | February 2026 |
+| 4 | Capterra | Minimal | N/A | Direct listing URL not confirmed | February 2026 |
 | 5 | PeerSpot | 0 | N/A | Not listed | February 2026 |
-| 6 | AWS Marketplace | 0 | N/A | AWS Marketplace | February 2026 |
+| 6 | AWS Marketplace | 0 | N/A | Direct listing URL not confirmed | February 2026 |
 | 7 | Reddit | 0 | N/A | reddit.com | February 2026 |
 
 ### Notable Customer Quotes (Full References)
@@ -419,3 +419,18 @@ The near-absence of low-rated reviews is consistent with the 4.9/5.0 Gartner ave
 ---
 
 *This report was compiled from publicly available review data, company disclosures, and analyst publications. All ratings and review counts reflect publicly accessible data as of February 2026. Estimated figures are clearly marked. This analysis is intended for competitive intelligence purposes.*
+
+---
+
+## Verified Sources & References
+
+- [Reco AI - Gartner Peer Insights Reviews](https://www.gartner.com/reviews/market/data-loss-prevention/vendor/reco-767548734/product/reco)
+- [Reco AI - G2 Reviews](https://www.g2.com/products/reco-saas-security/reviews)
+- [Reco AI - TrustRadius Reviews](https://www.trustradius.com/products/reco/reviews)
+- [Reco AI Official Website](https://www.reco.ai)
+- [Reco AI LinkedIn](https://www.linkedin.com/company/recolabs)
+- [Reco AI Newsroom](https://www.reco.ai/newsroom)
+- [CRN 2025 Stellar Startup - Reco](https://www.reco.ai/blog/reco-recognized-as-a-crn-2025-stellar-startup)
+- [Insight Partners - Reco $25M](https://www.insightpartners.com/ideas/reco-secures-25m-to-close-the-saas-security-gap-with-ai-native-dynamic-saas-security/)
+
+*All URLs verified as of February 2026. Review counts and ratings are point-in-time snapshots and may have changed since this report was generated.*
