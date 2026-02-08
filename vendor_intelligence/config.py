@@ -160,6 +160,11 @@ class AnalysisConfig:
     output_dir: str = "output"
     timestamp: str = field(default_factory=lambda: datetime.now().strftime("%Y-%m-%d"))
 
+    # Google Drive settings
+    google_drive_credentials: Optional[str] = None  # Path to credentials JSON
+    google_drive_folder_id: Optional[str] = None  # Parent folder ID in Drive
+    upload_to_google_drive: bool = True  # Auto-upload when credentials available
+
     @property
     def analysis_id(self) -> str:
         safe_name = self.vendor_name.replace(" ", "_").replace("/", "-")

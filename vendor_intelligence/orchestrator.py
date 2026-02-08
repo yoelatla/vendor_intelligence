@@ -28,6 +28,12 @@ from typing import Optional
 from vendor_intelligence.config import AnalysisConfig
 from vendor_intelligence.utils.web_search import WebSearchClient
 from vendor_intelligence.utils.report_writer import ReportWriter, format_timestamp
+try:
+    from vendor_intelligence.utils.google_drive import GoogleDriveClient, is_google_drive_available
+except BaseException:
+    GoogleDriveClient = None  # type: ignore[misc, assignment]
+    def is_google_drive_available() -> bool:  # type: ignore[no-redef]
+        return False
 from vendor_intelligence.agents.base import AgentResult
 from vendor_intelligence.agents.agent_1_market_research import MarketResearchAgent
 from vendor_intelligence.agents.agent_2_review_scanner import ReviewScannerAgent
@@ -167,9 +173,18 @@ class VendorIntelligenceOrchestrator:
             self._log_agent_complete("agent_7", "OK", summary_result.duration_seconds)
 
             # ============================================
+            # Google Drive Upload (if configured)
+            # ============================================
+            drive_result = await self._upload_to_google_drive()
+
+            # ============================================
             # FINAL: Compile Results
             # ============================================
             final_result = self._build_final_result("success")
+
+            if drive_result:
+                final_result["google_drive"] = drive_result
+
             self._log_completion(final_result)
 
             return final_result
@@ -256,6 +271,84 @@ class VendorIntelligenceOrchestrator:
         result = await agent.execute()
         self.agent_results["agent_7"] = result
         return result
+
+    # ================================================================
+    # Google Drive Upload
+    # ================================================================
+
+    async def _upload_to_google_drive(self) -> Optional[dict]:
+        """
+        Upload all generated reports to Google Drive.
+
+        Uses the Drive client and folder structure created by Agent 3.
+        Returns upload metadata or None if Drive is not configured.
+        """
+        if not self.config.upload_to_google_drive:
+            return None
+
+        # Get the Drive client stored by Agent 3
+        drive_client: Optional[GoogleDriveClient] = getattr(
+            self.config, "_drive_client", None
+        )
+        if not drive_client:
+            logger.info("No Google Drive client available — skipping upload")
+            return None
+
+        # Get Drive folders from Agent 3's result
+        agent_3_result = self.agent_results.get("agent_3")
+        if not agent_3_result or not isinstance(agent_3_result, AgentResult):
+            return None
+
+        drive_folders = agent_3_result.data.get("google_drive")
+        if not drive_folders:
+            return None
+
+        local_output_dir = agent_3_result.data.get("base_dir")
+        if not local_output_dir:
+            return None
+
+        self._log_phase("UPLOAD", "Uploading Reports to Google Drive")
+
+        try:
+            uploaded = drive_client.upload_all_reports(
+                local_output_dir=local_output_dir,
+                drive_folders=drive_folders,
+                convert_to_gdoc=True,
+            )
+
+            total_files = sum(
+                len(v) if isinstance(v, list) else 1
+                for v in uploaded.values()
+            )
+
+            base_url = drive_folders["base"].get("url", "")
+            self._log_success(
+                f"Uploaded {total_files} files to Google Drive"
+            )
+            if base_url:
+                self._log_success(f"Drive folder: {base_url}")
+
+            # Share if configured
+            share_email = getattr(self.config, "google_drive_share_email", None)
+            if share_email:
+                drive_client.share_folder(
+                    drive_folders["base"]["id"],
+                    email=share_email,
+                    role="reader",
+                )
+                self._log_success(f"Shared with: {share_email}")
+
+            return {
+                "uploaded_files": total_files,
+                "base_folder_url": base_url,
+                "base_folder_id": drive_folders["base"]["id"],
+                "file_details": uploaded,
+            }
+
+        except Exception as e:
+            logger.error(f"Google Drive upload failed: {e}")
+            self._log_warning(f"Drive upload failed: {e}")
+            return None
 
     # ================================================================
     # Result Compilation
@@ -408,6 +501,12 @@ class VendorIntelligenceOrchestrator:
             print("\n  Output Files:")
             for key, path in output_files.items():
                 print(f"    - {key}: {path}")
+
+        drive_info = result.get("google_drive")
+        if drive_info:
+            print(f"\n  Google Drive:")
+            print(f"    Files uploaded: {drive_info.get('uploaded_files', 0)}")
+            print(f"    Folder URL:     {drive_info.get('base_folder_url', 'N/A')}")
 
         print("\n  Next Steps:")
         print("    1. Review Executive Summary (06_Executive_Summary)")
