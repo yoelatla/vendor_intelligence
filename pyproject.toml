@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "vendor-intelligence"
+version = "1.0.0"
+description = "Multi-Agent Vendor Intelligence System for Data Security competitive analysis"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+
+[project.scripts]
+vendor-intelligence = "vendor_intelligence.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["vendor_intelligence*"]

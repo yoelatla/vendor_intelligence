@@ -1,0 +1,19 @@
+# Multi-Agent Vendor Intelligence System
+# Core dependencies (Python 3.10+)
+
+# No external dependencies required for the base system.
+# The system uses only Python standard library modules:
+# - asyncio (async orchestration)
+# - json (data serialization)
+# - logging (structured logging)
+# - argparse (CLI interface)
+# - dataclasses (configuration)
+# - urllib.parse (URL handling)
+# - os, sys, re, pathlib (file/system operations)
+
+# Optional dependencies for enhanced functionality:
+# httpx>=0.25.0          # Async HTTP client for live web fetching
+# aiofiles>=23.0         # Async file I/O
+# rich>=13.0             # Enhanced terminal output
+# google-api-python-client>=2.100  # Google Drive integration
+# google-auth>=2.23      # Google authentication
